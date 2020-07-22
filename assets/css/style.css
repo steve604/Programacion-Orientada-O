@@ -11,20 +11,45 @@ body{
     color: var(--primary)
 }
 
-a:{
-text-decoration: none;
+a:hover{
+    text-decoration: none;
 }
 
 .bg-primary{ background-color: var(--primary) !important;}
+.bg-light{background-color: var(--ligth) !important;}
 
 #sidebar-container{
     min-height: 100vh;
+    margin-left: -18rem;
+    transition: margin .25s ease-out;
 }
 
 #sidebar-container .logo{
     padding: .875rem 1.25rem;
+    font-size: 1.2rem;
 }
 
 #sidebar-container .menu{
     width: 18rem;
+}
+
+.btn-search{
+    right: 0;
+}
+
+#content-wrapper.toggled #sidebar-container {
+    margin-left: 0;
+}
+
+@media (min-width: 768pc){
+    #sidebar-container{
+        margin-left: 0;
+    }
+    #page-container{
+        min-width: 0;
+        width: 100%;
+    }
+    #content-wrapper.toggled #sidebar-container{
+        margin-left: -18rem;
+    }
 }
