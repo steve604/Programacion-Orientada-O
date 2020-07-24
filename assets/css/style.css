@@ -62,4 +62,7 @@ background-color: rgb(58, 203, 247);
     #content-wrapper.toggled #sidebar-container{
         margin-left: -18rem;
     }
+    body{
+        margin-right: 18rem;
+    }
 }
