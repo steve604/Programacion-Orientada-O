@@ -18,6 +18,10 @@ a:hover{
 .bg-primary{ background-color: var(--primary) !important;}
 .bg-light{background-color: var(--ligth) !important;}
 
+.container{
+   margin-left: 18rem;
+   padding: 2px;
+}
 
 #sidebar-container{
     min-height: 100vh;
@@ -65,4 +69,5 @@ background-color: rgb(58, 203, 247);
     body{
         margin-right: 18rem;
     }
+
 }
