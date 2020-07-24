@@ -1,61 +1,14 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <!-- Ionic icons -->
-    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <%- include('layouts/head.html') %>
     <title>POO</title>
   </head>
   <body>
-    <!-- Agregar barra de navegacion -->
-    <div id="page-container" class="w-100">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom ">
-        <button id="menu-toggle" class="btn btn-primary"><i class="icon ion-md-menu lead"></i></button>
-        <form class="form-inline position-relative d-inline-block my-2">
-          <input class="form-control" type="search" placeholder="Buscar" aria-label="Buscar">
-          <button class="btn position-absolute btn-search" type="submit"></button>
-        </form>
-      </nav>
-      <!-- Menu principal -->
-    <div id="content-wrapper" class="d-flex">
-        <div id="sidebar-container" class="bg-primary">
-            <div class="logo">
-              <br>
-                <h4 class="text-light font-weight-bold">Syages</h4>
-            </div>
-            <div class="menu list-group-flush">
-                <a href="a" class="d-block text-light p-3"><i class="icon ion-md-apps mr-2 lead"></i> Tablero</a>
-                <a href="a" class="d-block text-light p-3"><i class="icon ion-md-mail mr-2 lead"></i></i> Mensajes</a>
-                <a href="a" class="d-block text-light p-3"><i class="icon ion-md-notifications mr-2 lead"></i> Notificaciones</a>
-                <a href="a" class="d-block text-light p-3"><i class="icon ion-md-grid mr-2 lead"></i> Horarios</a>
-                <a href="a" class="d-block text-light p-3"><i class="icon ion-md-contact mr-2 lead"></i> Usuarios</a>
-                <a href="a" class="d-block text-light p-3"><i class="icon ion-md-paper mr-2 lead"></i> Noticias</a>
-                <a href="a" class="d-block text-light p-3"><i class="icon ion-md-settings mr-2 lead"></i> Configuración</a>
-            </div>
-        </div>
-      </div>
-    </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-  
-      <!-- Abrir / cerrar menu -->
-  <script>
-    $("#menu-toggle").click(function (e) {
-      e.preventDefault();
-      $("#content-wrapper").toggleClass("toggled");
-    });
-  </script>
-  
+    <%- include('layouts/navigation.html') %>
   </body>
 </html>
+
