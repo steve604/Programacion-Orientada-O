@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- agregar header -->
+    <?php include('../layouts/head.html') ?>
+    <title>Horarios</title>
+    <link href="../assets/css/schedules.css" rel="stylesheet">
+</head>
+<body>
+    <!-- agregar menu y el navbar -->
+    <?php include('../layouts/navigation.html') ?>
+    <div class="container">
+        <!-- Escribir todo aqui -->
+        <div id='container'>
+            <div class='widget'>
+              <div id='Mañana' class="tab-content">
+                <table class="group-table">
+                  <thead>
+                    <tr>
+                      <th>Horas</th>
+                      <th>Lunes</th>
+                      <th>Martes</th>
+                      <th>Miercoles</th>
+                      <th>Jueves</th>
+                      <th>Viernes</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>8:00 - 9:00</td>
+                      <td>Matematicas</td>
+                      <td>Matematicas</td>
+                      <td>Matematicas</td>
+                      <td>Matematicas</td>
+                      <td>Matematicas</td>
+                    </tr>
+                    <tr>
+                        <td>9:00 - 10:00</td>
+                        <td>Naturales</td>
+                        <td>Naturales</td>
+                        <td>Naturales</td>
+                        <td>Naturales</td>
+                        <td>Naturales</td>
+                    </tr>
+                    <tr>
+                        <td>10:00 - 11:00</td>
+                        <td>Sociales</td>
+                        <td>Sociales</td>
+                        <td>Sociales</td>
+                        <td>Sociales</td>
+                        <td>Sociales</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class='widget'>
+                <div id='Tarde' class="tab-content">
+                  <table class="group-table">
+                    <thead>
+                      <tr>
+                        <th>Horas</th>
+                        <th>Lunes</th>
+                        <th>Martes</th>
+                        <th>Miercoles</th>
+                        <th>Jueves</th>
+                        <th>Viernes</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>8:00 - 9:00</td>
+                        <td>Espanol</td>
+                        <td>Espanol</td>
+                        <td>Espanol</td>
+                        <td>Espanol</td>
+                        <td>Espanol</td>
+                      </tr>
+                      <tr>
+                          <td>9:00 - 10:00</td>
+                          <td>Educación Física</td>
+                          <td>Educación Física</td>
+                          <td>Educación Física</td>
+                          <td>Educación Física</td>
+                          <td>Educación Física</td>
+                      </tr>
+                      <tr>
+                          <td>10:00 - 11:00</td>
+                          <td>Sociales</td>
+                          <td>Sociales</td>
+                          <td>Sociales</td>
+                          <td>Sociales</td>
+                          <td>Sociales</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+        </div> 
+    </div>
+    <script>
+        $(document).ready(function(){
+	var newWidget="<div class='widget-wrapper'> <ul class='tab-wrapper'></ul> <div class='new-widget'></div></div>";
+	$(".widget").hide();
+	$(".widget:first").before(newWidget);
+	$(".widget > div").each(function(){
+		$(".tab-wrapper").append("<li class='tab'>"+this.id+"</li>");
+		$(this).appendTo(".new-widget");
+	});
+	$(".tab").click(function(){
+		$(".new-widget > div").hide();
+		$('#'+$(this).text()).show();
+		$(".tab").removeClass("active-tab");
+		$(this).addClass("active-tab");
+	});
+	$(".tab:first").click();
+});
+    </script>
+    <?php include('../layouts/footer.html') ?>
+</body>
+</html>
