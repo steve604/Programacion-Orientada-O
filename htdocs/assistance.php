@@ -80,33 +80,47 @@
             </tr>
           </thead>
           <tbody>
+              <form action="" method="post">
             <tr>
               <th scope="row">1</th>
               <td>Mark</td>
               <td>Otto</td>
-              <td>@mdo</td>
-              <td><input type="checkbox" id="check" onclick="play();"></td>
-              <td ><div id="3d"></div></td>
-
+              <td><input type="checkbox" id="check" name="check" onclick="play();"></td>
+              <td ><div id="3d" name="fecha"></div></td>
+              <input type="submit" placeholder="enviar">
+        </form>
             </tr>
           </tbody>
         </table>
     </div>
+<?php
+
+$check = $_POST['check'];
+
+$fecha = $_POST['fecha'];
+
+$carga = sqlsrv_query(INSERT INTO `Asistencia`(`status`, `fecha`) VALUES('$check', '$fecha') ) ;
+
+?>
+
+
+
+
     <script>
     function play(){
 
-var check = document.getElementById('check').value;
-var objFecha = new Date();
-var dia  = objFecha.getDate();
-var mes  = objFecha.getMonth();
-var anio = objFecha.getFullYear();
+      var check = document.getElementById('check').value;
+      var objFecha = new Date();
+      var dia  = objFecha.getDate();
+      var mes  = objFecha.getMonth();
+      var anio = objFecha.getFullYear();
 
-if(check = true){
+      if(check = true){
 
-    document.getElementById('3d').innerHTML=' '+(dia + "/" + mes + "/" + anio);
-    
-    
-}
+          document.getElementById('3d').innerHTML=' '+(dia + "/" + mes + "/" + anio);
+          
+          
+      }
 
      }
     

@@ -9,11 +9,11 @@
 </head>
 <body>
     <!-- agregar menu y el navbar -->
-    <?php include('../layouts/navigation.html'); require_once('../connection.php')?>
+    <?php include('../layouts/navigation.html'); require_once('../connection.php'); ?>
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <h4>Crear Secciones</h4>
+                <h4>Crear Datos</h4>
             </div>
             <div class="card-body">
             <?php
@@ -23,8 +23,8 @@
             ?>
                 <p>Seleccione lo que desea crear</p>
                 <form class="form" role="form" autocomplete="off" method="POST">
-                    <button name="aula" class="btn btn-primary btn-lg btn-block" action="configurations.php" value="1" type="submit">Aula</button>
-                    <button name="grado" class="btn btn-dark btn-lg btn-block" action="configurations.php" value="1" type="submit">Grado</button>
+                    <button name="grado" class="btn btn-primary btn-lg btn-block" action="configurations.php" value="1" type="submit">Grado</button>
+                    <button name="seccion" class="btn btn-dark btn-lg btn-block" action="configurations.php" value="1" type="submit">Secciones</button>
                     <button name="aula" class="btn btn-danger btn-lg btn-block" action="configurations.php" value="1" type="submit">Aula</button>
                     <button name="aula" class="btn btn-primary btn-lg btn-block" action="configurations.php" value="1" type="submit">Aula</button>
                     <button name="aula" class="btn btn-success btn-lg btn-block" action="configurations.php" value="1" type="submit">Aula</button>

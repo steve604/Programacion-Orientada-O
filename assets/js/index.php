@@ -24,7 +24,7 @@ let promedioValores =  new Chart(ctx,{
               */
           ?>
           */
-          'Enero', 'Febrero', 'marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+          'Enero', 'Febrero', 'marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre',
         ],
         datasets:[{
             label: "Promedio De Notas",
