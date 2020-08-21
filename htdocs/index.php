@@ -19,13 +19,7 @@
 
       <h3>Promedio de notas</h3>
       <canvas id="promediosNotas" width="10%" height="3%"></canvas>
-      <h3>Desempeño por materias</h3>
-      <canvas id="promediosFortalezas" width="10%" height="3%"></canvas>
-      <h3>Promedio de pagos</h3>
-      <canvas id="promediosPagos" width="10%" height="3%"></canvas>
-      
     </div>
-    <script src="../assets/js/index.js"></script>
     <?php include('../assets/js/index.php'); include('../layouts/footer.html'); ?>
   </body>
 </html>
