@@ -20,6 +20,7 @@
         <div class="form-group row">
             <div class="col-lg-12 text-center">
                 <input hidden name="aula"></input>
+                <input type="reset" class="btn btn-secondary" value="Cancel">
                 <input name="guardarAula" size="5" value="Guardar"type="submit" class="btn btn-primary">
             </div>
         </div>
@@ -51,6 +52,7 @@
             }else{
                 echo "Este dato ya existe";
             }
+            sqlsrv_close($conn);
     }
     echo '                
         <form class="form" role="form" autocomplete="off" method="POST">
@@ -70,11 +72,21 @@
         </div>
         <div class="form-group row">
             <div class="col-lg-12 text-center">
-                <input name="guardarGrado" size="5" value="Guardar"type="submit" class="btn btn-primary">
+                <input type="submit" class="btn btn-secondary" value="Cancel">
+                <input name="guardarGrado" size="5" value="Guardar" type="submit" class="btn btn-primary">
             </div>
         </div>
+        </form>
+        <form hidden class="form" role="form" autocomplete="off" method="GET">
+
         </form>
 ';
     }
 
 ?>
+
+<script>
+function cancelar(){
+   document.submit()
+}
+</script>

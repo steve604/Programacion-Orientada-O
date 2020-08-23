@@ -1,29 +1,16 @@
-/*
-<script>
 
+<?php
+  if (!isset($_POST)) {
+    echo "hoa";
+  }else {
+  ?>
+  <script>
         // Llenar el promedio de Notas
 let ctx = document.getElementById("promediosNotas").getContext("2d");
 let promedioValores =  new Chart(ctx,{
     type:"line",
     data:{
         labels:[
-            //Llenar de manera automatia de la base de datos
-            /*
-            <?php
-                /*
-              $sql = "SELECT mes FROM VNotasMes GROUP BY mes HAVING COUNT(*) > 0";
-              $result = sqlsrv_query($conn, $sql);
-              while($row = sqlsrv_fetch_array($result)){
-                ?> 
-                  '<?php 
-                      echo $row["mes"]; 
-                    ?>',
-
-                <?php
-              }
-              */
-          ?>
-          */
           'Enero', 'Febrero', 'marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre',
         ],
         datasets:[{
@@ -105,4 +92,7 @@ let promedioPagos =  new Chart(ppx,{
         }]
     }
 });
-      </script>
+<?php
+  }
+?>
+</script>

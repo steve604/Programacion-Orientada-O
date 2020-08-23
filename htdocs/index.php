@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Agregar header -->
     <?php require('../layouts/head.html'); require_once('../connection.php');?>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js" integrity="sha512-QEiC894KVkN9Tsoi6+mKf8HaCLJvyA6QIRzY5KrfINXYuP9NxdIkRQhGq3BZi0J4I7V5SidGM3XUQ5wFiMDuWg==" crossorigin="anonymous"></script>
     <title>POO</title>
   </head>
@@ -15,8 +14,16 @@
     <?php include('../layouts/navigation.html'); ?>
     <div class="container">
       <!-- Escribir todo aqui -->
-
-
+      <br>
+      <form class="form" role="form" autocomplete="off">
+         <div class="form-group row">
+            <div class="col-lg-12 text-center">
+                <input type="reset" class="btn btn-secondary" value="Cancel">
+                <input type="button" class="btn btn-primary"
+                    value="Save Changes">
+            </div>
+        </div>
+    </form>
       <h3>Promedio de notas</h3>
       <canvas id="promediosNotas" width="10%" height="3%"></canvas>
     </div>

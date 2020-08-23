@@ -55,7 +55,7 @@
             <select name ="Asignatura" require class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <option value="">Seleccione</option>
             <?php
-                $sql = "SELECT descripcion FROM Asignatura WHERE estado = 1 ORDER BY cod_asig";
+                $sql = "SELECT nombre FROM Seccion ORDER BY nombre";
                 
                 $stmt = sqlsrv_query( $conn, $sql );
                 if( $stmt === false) {
@@ -63,7 +63,7 @@
                 }
 
             while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ){
-                $asignatura = $row['descripcion'];
+                $asignatura = $row['nombre'];
                 echo "<option value='{$asignatura}'>$asignatura";
             }
             ?>
@@ -87,45 +87,24 @@
               <td>Otto</td>
               <td><input type="checkbox" id="check" name="check" onclick="play();"></td>
               <td ><div id="3d" name="fecha"></div></td>
-              <input type="submit" placeholder="enviar">
         </form>
             </tr>
           </tbody>
         </table>
     </div>
-<?php
-
-$check = $_POST['check'];
-
-$fecha = $_POST['fecha'];
-
-$carga = sqlsrv_query(INSERT INTO `Asistencia`(`status`, `fecha`) VALUES('$check', '$fecha') ) ;
-
-?>
-
-
-
 
     <script>
     function play(){
 
       var check = document.getElementById('check').value;
       var objFecha = new Date();
-      var dia  = objFecha.getDate();
-      var mes  = objFecha.getMonth();
-      var anio = objFecha.getFullYear();
 
       if(check = true){
-
-          document.getElementById('3d').innerHTML=' '+(dia + "/" + mes + "/" + anio);
-          
-          
+          document.getElementById('3d').innerHTML=' '+(objFecha.getDate() + "/" + objFecha.getMonth() + "/" + objFecha.getFullYear());
       }
 
      }
-    
-
     </script>
-    <?php include('../layouts/footer.html'); include('../assets/js/notas.php')?>
+    <?php include('../layouts/footer.html');?>
   </body>
 </html>

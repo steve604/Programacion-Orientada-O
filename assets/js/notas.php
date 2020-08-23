@@ -1,3 +1,3 @@
 <script>
-//todo el codigo js va aqui
+console.log("esto es una prueba");
 </script>
