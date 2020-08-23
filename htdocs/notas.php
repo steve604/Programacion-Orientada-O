@@ -51,10 +51,10 @@
             ?>
             </select>
             <label class="col-lg-1 col-form-label form-control-label">Seccion</label>          
-            <select name ="Asignatura" require class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <select name ="Seccion" require class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <option value="">Seleccione</option>
             <?php
-                $sql = "SELECT descripcion FROM Asignatura WHERE estado = 1 ORDER BY cod_asig";
+                $sql = "SELECT nombre FROM Seccion ORDER BY nombre";
                 
                 $stmt = sqlsrv_query( $conn, $sql );
                 if( $stmt === false) {
@@ -62,8 +62,8 @@
                 }
 
             while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ){
-                $asignatura = $row['descripcion'];
-                echo "<option value='{$asignatura}'>$asignatura";
+                $Seccion = $row['nombre'];
+                echo "<option value='{$Seccion}'>$Seccion";
             }
             ?>
             </select>

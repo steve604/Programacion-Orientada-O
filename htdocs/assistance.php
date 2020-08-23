@@ -96,11 +96,12 @@
     <script>
     function play(){
 
-      var check = document.getElementById('check').value;
-      var objFecha = new Date();
+      let check = document.getElementById('check').value;
+      let objFecha = new Date();
+      let mes =  objFecha.getMonth() + 1;
 
       if(check = true){
-          document.getElementById('3d').innerHTML=' '+(objFecha.getDate() + "/" + objFecha.getMonth() + "/" + objFecha.getFullYear());
+          document.getElementById('3d').innerHTML=' '+(objFecha.getDate() + "/" + mes + "/" + objFecha.getFullYear());
       }
 
      }
