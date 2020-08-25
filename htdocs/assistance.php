@@ -52,7 +52,7 @@
             ?>
             </select>
             <label class="col-lg-1 col-form-label form-control-label">Seccion</label>          
-            <select name ="Asignatura" require class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <select name ="Seccion" require class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <option value="">Seleccione</option>
             <?php
                 $sql = "SELECT nombre FROM Seccion ORDER BY nombre";
@@ -74,7 +74,7 @@
           </form>
         </table>
     </div>
-
+        
     <script>
     function play(){
         //selecciona la fecha actual para guardarla en la base de datos

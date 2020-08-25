@@ -31,8 +31,10 @@
       <h3>Promedio de notas</h3>
       <canvas id="promediosNotas" width="10%" height="3%"></canvas>
       <br>
+      <!--
       <h3>Fortaleza por materias</h3>
       <canvas id="promedioAsistencia" width="10%" height="3%"></canvas>
+      -->
     </div>
     <?php include('../assets/js/index.php'); include('../layouts/footer.html'); ?>
   </body>
