@@ -95,7 +95,7 @@
 
     <script>
     function play(){
-
+        //selecciona la fecha actual para guardarla en la base de datos
       let check = document.getElementById('check').value;
       let objFecha = new Date();
       let mes =  objFecha.getMonth() + 1;

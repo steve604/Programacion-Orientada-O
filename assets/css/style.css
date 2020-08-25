@@ -24,6 +24,10 @@ a:hover{
    padding: 2px;
 }
 
+#navegador{
+    position:fixed !important;
+}
+
 #sidebar-container{
     min-height: 100vh;
     margin-left: -18rem;
@@ -46,6 +50,7 @@ background-color: rgb(58, 203, 247);
 .btn-search{
     right: 0;
 }
+
 #content-wrapper{
     position:fixed !important; 
     margin-left:0 !important;

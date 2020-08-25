@@ -61,19 +61,35 @@ let promedioValores =  new Chart(ctx,{
 });
 
 //Llenar el promedio fortalezas
-let pfx = document.getElementById("promediosFortalezas").getContext("2d");
+let pfx = document.getElementById("promedioAsistencia").getContext("2d");
 
 let promedioFortalezas =  new Chart(pfx,{
-    type:'pie',
+    type:'radar',
     data:{
-        labels:['Enero', 'Febrero', 'marzo'],
+        labels:[
+          <?php
+            $sql = "SELECT descripcion FROM Asignatura ORDER BY cod_asig";
+            $result = sqlsrv_query($conn, $sql);
+              while($row = sqlsrv_fetch_array($result)){
+                ?>'<?php
+                $materia = $row["descripcion"];
+                echo $materia;
+                ?>
+                ',
+                <?php
+              }
+          ?>
+        ],
         datasets:[{
-            label: "Promedio De Notas",
-            data:[10, 12, 29],
+            label: "Fortalezas",
+            data:[86, 94, 69, 67],
             backgroundColor:[
                 'rgb(14, 160, 255)'
             ]
-        }]
+        }],    
+      options:{
+               beginAtZero:true    
+      }
     }
 });
 

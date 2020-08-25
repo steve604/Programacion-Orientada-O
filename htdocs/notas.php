@@ -10,17 +10,28 @@
   </head>
   <body>
     <!-- agregar el menu -->
-    <?php include('../layouts/navigation.html'); ?>
+    <?php include('../layouts/navigation.html');
+    if ($_POST){
+      $asignatura = $_POST['Asignatura'];
+      $grado = $_POST['Aula'];
+      $seccion = $_POST['Seccion'];
+    }else{
+      $asignatura = "0";
+      $grado = "0";
+      $seccion = "0";
+    }
+    echo $asignatura, $grado, $seccion;
+    ?>
     <div class="container">
       <!-- Escribir todo aqui -->
       <table class="table table-bordered table-striped">
       <form class="form" role="form" method="post" autocomplete="off">
         <div class="dropdown">
           <label class="col-lg-1 col-form-label form-control-label">Asignatura</label>          
-            <select name ="Asignatura" require class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <option value="">Seleccione</option>
+            <select name ="Asignatura" required class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <option value="<?php $asignatura ?>">Seleccione</option>
             <?php
-                $sql = "SELECT descripcion FROM Asignatura WHERE estado = 1 ORDER BY cod_asig";
+                $sql = "SELECT cod_asig, descripcion FROM Asignatura WHERE estado = 1 ORDER BY cod_asig";
                 
                 $stmt = sqlsrv_query( $conn, $sql );
                 if( $stmt === false) {
@@ -29,15 +40,16 @@
 
             while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ){
                 $asignatura = $row['descripcion'];
-                echo "<option value='{$asignatura}'>$asignatura";
+                $cod = $row['cod_asig'];
+                echo "<option value='{$cod}'>$asignatura";
             }
             ?>
             </select>
             <label class="col-lg-1 col-form-label form-control-label">Aula</label>
-            <select name ="Curso" require class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <option value="">Seleccione</option>
+            <select name ="Aula" required class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <option value="<?php $grado ?>">Seleccione</option>
             <?php
-                $sql = "SELECT grado from Grado ORDER BY grado";
+                $sql = "SELECT cod_gra, grado from Grado ORDER BY grado";
                 
                 $stmt = sqlsrv_query( $conn, $sql );
                 if( $stmt === false) {
@@ -46,15 +58,16 @@
 
             while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ){
                 $grado = $row['grado'];
-                echo "<option value='{$grado}'>$grado";
+                $cod = $row['cod_gra'];
+                echo "<option value='{$cod}'>$grado";
             }
             ?>
             </select>
             <label class="col-lg-1 col-form-label form-control-label">Seccion</label>          
-            <select name ="Seccion" require class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <option value="">Seleccione</option>
+            <select name ="Seccion" required class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <option value="<?php $seccion ?>">Seleccione</option>
             <?php
-                $sql = "SELECT nombre FROM Seccion ORDER BY nombre";
+                $sql = "SELECT * FROM Seccion ORDER BY nombre";
                 
                 $stmt = sqlsrv_query( $conn, $sql );
                 if( $stmt === false) {
@@ -63,13 +76,16 @@
 
             while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ){
                 $Seccion = $row['nombre'];
-                echo "<option value='{$Seccion}'>$Seccion";
+                $id = $row['id'];
+                echo "<option value='{$id}'>$Seccion";
             }
             ?>
             </select>
             <label class="col-lg-0"></label>
         <input name="Buscar" value="Buscar" type="submit" class="btn btn-primary">
         </div>
+      </form>
+      <form class="form" role="form" method="post" action="crear.php" autocomplete="off">
           <thead>
             <tr>
               <th scope="col">Nombre</th>
@@ -91,6 +107,16 @@
               <?php include('../assets/js/notas.php');?>
           </tbody>
         </table>
+        <?php
+        if ($_POST) {
+                ?>
+                <input name="Guardar" value="Guardar" type="submit" class="btn btn-primary">
+                <?php
+              }
+        ?>
+          <input hidden type="text" name="Asignatura" value=" <?php echo $asignatura;?> "></input>
+          <input hidden type="text" name="Aula" value=" <?php echo $grado;?> "></input>
+          <input hidden type="text" name="Seccion" value=" <?php echo $seccion?> "></input>
       </form>
     </div>
     <?php include('../layouts/footer.html'); ?>

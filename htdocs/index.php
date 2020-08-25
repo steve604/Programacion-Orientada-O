@@ -15,17 +15,24 @@
     <div class="container">
       <!-- Escribir todo aqui -->
       <br>
+      <h1>Cuadro Estadistico</h1>
+      <!-- Debes agregarlo al terminar, para poner un bucardor estadistico por alumno
       <form class="form" role="form" autocomplete="off">
          <div class="form-group row">
             <div class="col-lg-12 text-center">
-                <input type="reset" class="btn btn-secondary" value="Cancel">
-                <input type="button" class="btn btn-primary"
-                    value="Save Changes">
+                <label>Buscar por matricula</label>
+                <input type="text" name="alunmobuscado">
+                <input type="button" class="btn btn-primary" value="Save Changes">
             </div>
         </div>
-    </form>
+      </form>
+      -->
+      <br>
       <h3>Promedio de notas</h3>
       <canvas id="promediosNotas" width="10%" height="3%"></canvas>
+      <br>
+      <h3>Fortaleza por materias</h3>
+      <canvas id="promedioAsistencia" width="10%" height="3%"></canvas>
     </div>
     <?php include('../assets/js/index.php'); include('../layouts/footer.html'); ?>
   </body>

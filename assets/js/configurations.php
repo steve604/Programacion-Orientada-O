@@ -52,7 +52,7 @@
             }else{
                 echo "Este dato ya existe";
             }
-            sqlsrv_close($conn);
+
     }
     echo '                
         <form class="form" role="form" autocomplete="off" method="POST">
