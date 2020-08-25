@@ -1,0 +1,203 @@
+
+<html>
+	<head>
+		<style>
+		#tblDatos{
+			border:solid 1px black;
+			width:100%;
+
+		}
+			#tblDatos thead{
+			background:gray;
+			color: whilte;
+			}
+
+		</style>
+
+	</head>
+	<body onload = "cargarDatos();" >
+
+
+	<!-- <center> <img src="utesa.jpg "  width="100" height="100"   > </center> -->
+
+
+		<center>
+		<h3> <u>Formulario de Profesores </u></h3>
+			<table >
+
+					<tr>
+					<th>Nombre</th>
+					<td><input type="text" id="nombre"/></td>
+				</tr>
+					<tr>
+					<th>Apellido</th>
+					<td><input type="text" id="apellido"/></td>
+				</tr>
+					<tr>
+					<th>Profesión</th>
+					<td><input type="text" id="profesion"/></td>
+				</tr>
+        <tr>
+        <th>Dirección</th>
+        <td><input type="text" id="direccion"/></td>
+      </tr>
+
+      <tr>
+      <th>Cursos</th>
+      <td><form action="../../form-result.php" target="_blank">
+      <p>   <select name="Cursos">
+        <option> Primaria</option>
+          <option>1ero </option>
+          <option>2do </option>
+          <option>3ero</option>
+          <option>4to</option>
+          <option>5to</option>
+            <option> 6to</option>
+            <option>Secundaria </option>
+            <option>1ero Secundaria</option>
+            <option>2do Secundaria</option>
+            <option>3ero Secundaria</option>
+            <option>4to Secundaria</option>
+            <option>5to Secundaria</option>
+            <option>6to Secundaria</option>
+
+
+
+        </select>
+      </p>
+      </form></td>
+    </tr>
+
+
+
+			<!--		<tr>
+					<th> Fecha Nacimiento</th>
+          <td>
+               <input type="date"   name="trip-start"
+         value="2018-07-22"
+         min="1700-01-01" max="2018-12-31">
+       </td>
+        	</tr>-->
+					<tr>
+					<th>Materia</th>
+
+
+<td> <label class="col-lg-1 col-form-label form-control-label"> </label>
+            <select name ="Curso" require class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <option value="">Seleccione</option>
+            <?php
+                $sql = "SELECT materia from materia ORDER BY materia";
+
+                $stmt = sqlsrv_query( $conn, $sql );
+                if( $stmt === false) {
+                    die( print_r( sqlsrv_errors(), true) );
+                }
+
+            while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ){
+                $grado = $row['materia'];
+                echo "<option value='{$materia}'>$materia";
+            }
+            ?>
+            </select>
+</td>
+
+				</tr>
+
+			</table>
+
+
+
+
+			 </center>
+
+			 </br>
+			<center>  <button type="button"   onclick="guardarDatos();">    <b>  Guardar </b>    </button>   </center>
+
+				<br/>
+	<!--
+			<fieldset>
+		<legend> <b>Datos Agregados</b></legend>
+				<table id= "tblDatos"  >
+					<thead>
+						<tr>
+							<th>Nombre</th>
+							<th>Apellido</th>
+							<th>Carrera</th>
+							<th>Sexo</th>
+							<th>Color</th>
+              <th>Materias</th>
+						</tr>
+					</thead>
+					<tbody id="tbDatos"> </tbody>
+				</table>
+			</fieldset>-->
+
+			<script>
+				var DATOS = [];
+
+				function guardarDatos(){
+				   inps = document.getElementsByTagName('input');
+				   	for( k in inps){
+
+						if (inps[k].value == '')   {
+
+							alert ("Debe completar el/la " + inps[k].id);
+							return false;
+						}
+
+					}
+
+				persona = {};
+ 				    persona.nombre = document.getElementById('nombre').value;
+					persona.apellido = document.getElementById('apellido').value;
+					persona.carrera = document.getElementById('profesion').value;
+					persona.sexo = document.getElementById('direccion').value;
+ 					DATOS.push(persona);
+
+
+					localStorage.setItem('datos', JSON.stringify(DATOS));
+					mostrarDatos();
+					 inps = document.getElementsByTagName('input');
+					 for( k in inps){
+						inps[k].value= '';
+
+					 }
+
+
+					}
+
+
+					function cargarDatos(){
+
+					 tmp = localStorage.getItem('datos');
+					 if(tmp != null){
+					 DATOS = 	JSON.parse(tmp);
+					 mostrarDatos();
+					 }
+
+					}
+				function mostrarDatos(){
+					dest = document.getElementById('tbDatos');
+					dest.innerHTML= "";
+
+					for ( k in DATOS){
+					    persona = DATOS[k];
+						tr = document.createElement('tr');
+
+					for(y in persona){
+						td = document.createElement('td');
+						td.innerHTML = persona[y];
+						tr.appendChild(td);
+					}
+						dest.appendChild(tr);
+
+					}
+
+				}
+
+
+
+			</script>
+
+	</body>
+</html>
