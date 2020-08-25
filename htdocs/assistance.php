@@ -68,28 +68,10 @@
             }
             ?>
             </select>
+            <input name="Buscar" value="Buscar" type="submit" class="btn btn-primary">
         </div>
-
-          <thead>
-            <tr>
-              <th scope="col">Nombre</th>
-              <th scope="col">Apellido</th>
-              <th scope="col">Aula</th>
-              <th scope="col">Asistencia</th>
-              <th scope="col">fecha</th>
-            </tr>
-          </thead>
-          <tbody>
-              <form action="" method="post">
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td><input type="checkbox" id="check" name="check" onclick="play();"></td>
-              <td ><div id="3d" name="fecha"></div></td>
-        </form>
-            </tr>
-          </tbody>
+        <?php include('../assets/js/assistance.php'); ?>
+          </form>
         </table>
     </div>
 
